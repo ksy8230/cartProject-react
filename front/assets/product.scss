@@ -1,0 +1,21 @@
+/*
+
+product-box : 상품리스트 박스
+
+*/
+.product-box {
+    img {
+        width: 100%;
+    }
+    
+}
+
+.products-list {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            width: 25%;
+        }
+    }
+}
