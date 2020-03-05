@@ -16,6 +16,9 @@ const couponsDB = require('./source/coupons.js');
 server.get('/productlist', (req, res) => { // 상품리스트 로드 api
     //res.header("Access-Control-Allow-Origin", "*");
     console.log(productItemsDB)
+    productItemsDB.sort((a,b) => {
+        return a.score > b.score ? -1 : 1;
+    })
     res.send(productItemsDB);
 });
 

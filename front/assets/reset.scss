@@ -157,18 +157,18 @@ body {
     font-size:14px;
 }
 button {
-  display: inline-block;
+  display: block;
+  width: 100%;
   padding: 0;
-  background: #3B3B3B;
-  color: #fff;
+  background: #fff;
+  color: #000;
   line-height: 1rem;
-  border-radius: 5px;
   font-weight: bold;
   border: 0;
+  border: 1px solid #ddd;
+  line-height: 40px;
   a{
     display: block;
-    padding: 10px;
-    color:#fff;
   }
   &:active {
     outline: none;

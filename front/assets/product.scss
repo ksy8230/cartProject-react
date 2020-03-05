@@ -1,13 +1,98 @@
 /*
 
-product-box : 상품리스트 박스
+product-box : 상품 리스트 박스
+products-list : 상품 리스트
+minicart-list : 미니카트 리스트
 
 */
+@import './mixin.scss';
+
 .product-box {
+    position: relative;
     img {
         width: 100%;
     }
-    
+    &:hover {
+        .cover {
+            &:after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top:0;left:0;
+                background: rgba(0,0,0,0.4);
+            }
+        }
+        .cart-btn {
+            @include css3(opacity,1);
+        }
+    }
+    .cart-btn {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        @include css3(transform,translate(-50%,-50%));
+        @include css3(opacity,0);
+        @include css3(transition, all 0.5s);
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width:100px;
+            line-height: 40px;
+            display: inline-block;
+            color:#fff;
+            z-index: 1;
+            &.add {
+                z-index: 2;
+            }
+            /*&.subtract {
+                @include css3(opacity,0);
+            }*/
+        }
+    }
+    .cover {
+        position: relative;
+        padding-bottom: 56%;
+        overflow: hidden;
+        border-radius: 5px;
+        img {
+            position: absolute;
+            top:50%;
+            left:50%;
+            @include css3(transform, translate(-50%,-50%));
+        }
+    }
+    .info {
+        margin: 10px 0 0 0;
+        p {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+            height: 50px;
+            &.price {
+                margin-top:5px;
+                font-weight: bold;
+                border:0;
+            }
+        }
+    }
+    &.selected {
+        /*.cart-btn {
+            .add {
+                @include css3(opacity,0);
+            }
+            .subtract {
+                @include css3(opacity,1);
+                z-index: 2;
+            }
+        }*/
+
+    }
 }
 
 .products-list {
@@ -15,7 +100,82 @@ product-box : 상품리스트 박스
         display: flex;
         flex-wrap: wrap;
         li {
+            position: relative;
             width: 25%;
+            padding: 0 15px;
+            margin-bottom: 20px;
         }
     }
 }
+
+.minicart-list {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    z-index: -1;
+    @include css3(opacity,0);
+    &.active {
+        @include css3(opacity,1);
+        z-index: 2;
+        .minicart-content {
+            right:0;
+        }
+    }
+    .overlay {
+        position: absolute;
+        top:0;left:0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+        z-index: 1;
+    }
+    .minicart-content {
+        position: relative;
+        right:-50%;
+        height: 100%;
+        display: inline-block;
+        text-align: left;
+        width: 400px;
+        background: #fff;
+        z-index: 2;
+        @include css3(transition, all 0.5s);
+
+        .minicart-box {
+            position: relative;
+            margin: 15px;
+            overflow: hidden;
+            .cover {
+                position: relative;
+                padding-bottom: 56%;
+                img {
+                    position: absolute;
+                    width:100%;
+                }
+                &:after {
+                    position: absolute;
+                    top:0;left:0;
+                    content: '';
+                    display: inline-block;
+                    width: 100%; height:100%;
+                    background: rgba(0,0,0,0.5);
+                }
+            }
+            .info {
+                position: absolute;
+                top:50%;left:50%;
+                @include css3(transform, translate(-50%,-50%));
+                p {
+                    color:#fff; text-align: center;
+                    &:first-child {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
