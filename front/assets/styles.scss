@@ -2,8 +2,24 @@
 @import './mixin.scss';
 @import './reset.scss';
 @import './product.scss';
+@import './cart.scss';
 
 .pages-wrap {
     margin: 0 auto;
     max-width: 1176px;
+    .pages-wrap_title {
+        h2 {
+            margin: 0 0 15px 0;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: $black;
+        }
+        p {
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            color: $gray;
+        }
+    }
 }

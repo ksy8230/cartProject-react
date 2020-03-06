@@ -1,0 +1,25 @@
+@import './_variable.scss';
+/*
+
+.cart-container : 카트 본문 전체를 감싸는 태그
+
+*/
+
+.cart-container {
+    display: flex;
+}
+
+.cart-list {
+    width: 80%;
+    margin-right: 20px;
+    ul {
+        li {
+            display: flex;
+            .cover {
+                display: inline-block;
+                width: 120px;
+                img {width: 100%;}
+            }
+        }
+    }
+}
