@@ -21,6 +21,7 @@ minicart-list : 미니카트 리스트
                 position: absolute;
                 top:0;left:0;
                 background: rgba(0,0,0,0.4);
+                
             }
         }
         .cart-btn {
@@ -29,25 +30,20 @@ minicart-list : 미니카트 리스트
     }
     .cart-btn {
         position: absolute;
-        top: 30%;
-        left: 50%;
-        width: 100%;
+        top: 10px;
+        right: 27px;
         text-align: center;
         z-index: 1;
-        @include css3(transform,translate(-50%,-50%));
+        cursor: pointer;
         @include css3(opacity,0);
         @include css3(transition, all 0.5s);
         span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            width:100px;
             line-height: 40px;
             display: inline-block;
             color:#fff;
             z-index: 1;
             &.add {
+                font-size: 24px;
                 z-index: 2;
             }
             /*&.subtract {
@@ -96,6 +92,7 @@ minicart-list : 미니카트 리스트
 }
 
 .products-list {
+    min-height: 570px;
     ul {
         display: flex;
         flex-wrap: wrap;
@@ -104,6 +101,14 @@ minicart-list : 미니카트 리스트
             width: 25%;
             padding: 0 15px;
             margin-bottom: 20px;
+            .link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
         }
     }
 }

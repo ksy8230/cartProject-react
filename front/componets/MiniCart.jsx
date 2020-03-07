@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const MiniCart = ({ miniCartActive, closeMiniCart, cartList, removeMiniCart}) => {
+const MiniCart = ({ 
+    miniCartActive, closeMiniCart, cartList, removeMiniCart
+}) => {
     return (
         <div className={miniCartActive ? 'minicart-list active' : 'minicart-list'}>
             <div className='overlay' onClick={closeMiniCart}></div>
@@ -11,14 +15,14 @@ const MiniCart = ({ miniCartActive, closeMiniCart, cartList, removeMiniCart}) =>
                         miniCartActive ? 
                         <>
                             {
-                                cartList.map( v => {
+                                cartList && cartList.map( v => {
                                     return (
                                         <div className='minicart-box'>
-                                            <span className='subtract' onClick={() => removeMiniCart(v.id)}>x</span>
+                                            <span className='subtract' onClick={() => removeMiniCart(v.id)}><FontAwesomeIcon icon={faTimes} /></span>
                                             <div className='cover'><img src={v.coverImage} alt=""/></div>
                                             <div className='info'>
                                                 <p>{v.title}</p>
-                                                <p>{v.price}원</p>
+                                                <p>{v.price.toLocaleString()}원</p>
                                             </div>
                                         </div>
                                     )
@@ -27,8 +31,8 @@ const MiniCart = ({ miniCartActive, closeMiniCart, cartList, removeMiniCart}) =>
                         </> 
                         : null
                     }
-                    <div><button>바로 구매</button></div>
-                    <div><button><Link href='/cart'><a>장바구니</a></Link></button></div>
+                    <div><button type="button" className="btn btn-primary">바로 구매</button></div>
+                    <div><button ><Link href='/cart'><a>장바구니</a></Link></button></div>
                 </div>
             }
         </div>

@@ -10,22 +10,35 @@ import rootSaga from '../sagas';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
 import '../assets/styles.scss';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 
-const App = ({ Component, store }) => { // Component : next에서 넣어주는 props
+const App = ({ Component, store, pageProps }) => { // Component : next에서 넣어주는 props
     return (
         <Provider store={store}>
             <Head>
                 <title>class 101</title>
                 {/* css, js cdn 추가하는 곳 */}
             </Head>
-            <Component />
+            <Component {...pageProps} />
         </Provider>
     )
 };
 
 App.prototype = {
-    Component : PropTypes.elementType,
+    Component : PropTypes.elementType, // page들
     store : PropTypes.object,
+};
+
+App.getInitialProps = async (context) => {
+    console.log(context);
+    const { ctx } = context;
+    let pageProps = {};
+    if (context.Component.getInitialProps) { // 페이지에 getInitialProps가 존재할 때만
+        pageProps = await context.Component.getInitialProps(ctx);
+    }
+    return { pageProps };
 };
 
 export default withRedux((initialState) => { // 리듀서의 초기 state들에 접근

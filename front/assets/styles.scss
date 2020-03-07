@@ -3,13 +3,16 @@
 @import './reset.scss';
 @import './product.scss';
 @import './cart.scss';
+@import './layerPopup.scss';
+
 
 .pages-wrap {
     margin: 0 auto;
     max-width: 1176px;
     .pages-wrap_title {
+        padding:1.5rem 0;
         h2 {
-            margin: 0 0 15px 0;
+            margin: 0 0 1rem 0;
             text-align: center;
             font-size: 28px;
             font-weight: bold;
@@ -22,4 +25,14 @@
             color: $gray;
         }
     }
+    p {
+        margin-bottom: 0;
+    }
+    button {
+        margin: 0;
+    }
+}
+
+.wid1280 {
+    max-width: 1280px;
 }

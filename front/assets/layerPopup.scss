@@ -1,0 +1,69 @@
+@import './_variable.scss';
+@import './mixin.scss';
+
+/*
+
+.popup-wrapper : 레이어팝업 전체를 감싸는 태그
+.cart-option : 장바구니 옵션 팝업
+
+*/
+
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &.fade-in {
+        .popup-wrapper_inner-wrapper {
+            top:50%;
+            @include css3(opacity, 1);
+        }
+    }
+    .overlay {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+    }
+    .popup-wrapper_inner-wrapper {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        @include css3(opacity, 0);
+        @include css3(transition, all 0.3s);
+        .content {
+            display: flex;
+            padding: 2rem;
+            background: #fff;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    &.cart-option {
+        .cover {
+            width: 50%;
+        }
+        .info {
+            width: 50%;
+            margin-left: 1rem;
+            .info_amount {
+                div {
+                    display: flex;
+                    button {
+                        width: 50px;
+                    }
+                    span {
+                        display: inline-block;
+                        width: 50px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

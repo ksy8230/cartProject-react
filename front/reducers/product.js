@@ -34,6 +34,7 @@ const reducer = (state = initialState, action) => {
         case LOAD_PRODUCTS_REQUEST : {
             return {
                 ...state,
+                isLoadingList : true,
             }
         }
         case LOAD_PRODUCTS_SUCCESS : {
