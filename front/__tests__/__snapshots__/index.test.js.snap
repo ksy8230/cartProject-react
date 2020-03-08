@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`인덱스 페이지 렌더링 1`] = `
+<div>
+  <header>
+    <div>
+      <a
+        href="/"
+      >
+        홈
+      </a>
+    </div>
+    <div>
+      search
+    </div>
+    <div>
+      navagation
+    </div>
+  </header>
+  <a
+    href="/products"
+  >
+    상품리스트
+  </a>
+</div>
+`;

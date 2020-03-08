@@ -40,7 +40,11 @@
 - [ ] 불필요한 코드 정리, 주석 달기 -ing
 - [v] /cart 접근시 데이터 없는 경우 처리
 
-- [ ] 테스트 환경은 어떻게 만드는가
+- [v] 테스트 환경 만들기
+    - 참고한 링크들
+    - https://github.com/zeit/next.js/tree/canary/examples/with-jest
+    - https://medium.com/@netxm/testing-redux-reducers-with-jest-6653abbfe3e1
+    - https://www.youtube.com/watch?v=2d-SX8YRyis
 
 + a 넣고 싶은 것 & 기타
 - [v] 페이지네이션에 외부 라이브러리 사용해 디자인 적용해 보기
@@ -85,3 +89,7 @@ toLocaleString() : 천단위 컴마
     - => (해결) isLoadingList 라는 state 상태값을 컴포넌트디드마운트 사이클에서 true, false 여부로 감지를 시키고, isLoadingList 가 false(상품 리스트 로드 액션 성공)이 됐을 때 lists 배열 안에 훅스로 데이터를 넣어준다.
 - 장바구니 아이콘 클릭시 cartList 배열 못 읽는 현상
     - => (해결) 장바구니 아이콘 클릭시 addMiniCart라는 함수가 실행되고 이 함수는 useCallback으로 감싸져있다. useCallback 두번째 인자에 targetProductIndex(추가할 상품의 index)를 구하기 위해 사용할 productsList 값을 넣어줘야 함수가 실행된다.
+
+(20.03.08) 
+- Next에 react-test-library 추가
+- /products 페이지 액션, 리듀서 유닛 테스트 (요청, 성공 케이스)
