@@ -1,9 +1,9 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, memo } from "react";
 import { useSelector } from "react-redux";
 import { selectedTotalAmount, filteredForCouponTotalAmount, filteredExceptCouponTotalAmount, makeCouponsList } from "../FunctionalComponent";
 import { MDBBtn } from 'mdbreact';
 
-const CartCheckOut = ({ cartListState }) => {
+const CartCheckOut = memo(({ cartListState }) => {
     
     const couponsList = useSelector(state => state.product.couponsList);
     const [counponValue, setCouponValue] = useState(''); // ex. 0.1, 10000
@@ -64,10 +64,10 @@ const CartCheckOut = ({ cartListState }) => {
                     <p>총 결제 예정 금액</p>
                     <span>{finalAmount(cartListState).toLocaleString()}원</span>
                 </div>
-                <MDBBtn>주문하기</MDBBtn>
             </div>
+            <MDBBtn>주문하기</MDBBtn>
         </div>
     );
-};
+});
 
 export default CartCheckOut;

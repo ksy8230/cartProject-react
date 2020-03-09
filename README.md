@@ -46,7 +46,7 @@
     - https://medium.com/@netxm/testing-redux-reducers-with-jest-6653abbfe3e1
     - https://www.youtube.com/watch?v=2d-SX8YRyis
 
-+ a 넣고 싶은 것 & 기타
+##### +a 넣고 싶은 것 & 기타
 - [v] 페이지네이션에 외부 라이브러리 사용해 디자인 적용해 보기
 - [v] 컴포넌트들을 page기준으로 폴더 안에 넣기 ex)cart 페이지 관련 컴포넌트는 cart 폴더에 넣는다
 - [v] 상품목록 페이지 server-side-rendering
@@ -77,24 +77,24 @@ toLocaleString() : 천단위 컴마
 (20.03.05) 상품 목록 페이지 기능 구현 및 스타일링
 
 (20.03.06) 장바구니 페이지 기능 구현 
-- mdbreact(부트스트랩) 라이브러리 사용하여 체크박스, 버튼, 셀렉트박스 디자인 적용
-- module parse failed unexpected character '@ 에러
+- (add) mdbreact(부트스트랩) 라이브러리 사용하여 체크박스, 버튼, 셀렉트박스 디자인 적용
+- (edit) module parse failed unexpected character '@ 에러
     - @zeit/next-css file-loader url-loader 설치 후 next.config.js파일 룰 수정
     - https://github.com/zeit/next-plugins/issues/273
 
 (20.03.07) 장바구니 페이지 스타일링 및 페이지 검수 중 에러 수정
-- /products 첫 진입시 상품 데이터는 불러와지는데
- 화면에 렌더링 안 되는 이슈
+- (edit) /products 첫 진입시 상품 데이터는 불러와지는데 화면에 렌더링 안 되는 이슈
     - 상품을 5개씩만 보여주기 위해 불러온 데이터 중 5개만 lists 배열 안에 넣고 map으로 렌더링해주는 방식인데 lists이 처음 렌더링시 [] 빈 배열을 반환
     - => (해결) isLoadingList 라는 state 상태값을 컴포넌트디드마운트 사이클에서 true, false 여부로 감지를 시키고, isLoadingList 가 false(상품 리스트 로드 액션 성공)이 됐을 때 lists 배열 안에 훅스로 데이터를 넣어준다.
-- 장바구니 아이콘 클릭시 cartList 배열 못 읽는 현상
+- (edit) 장바구니 아이콘 클릭시 cartList 배열 못 읽는 현상
     - => (해결) 장바구니 아이콘 클릭시 addMiniCart라는 함수가 실행되고 이 함수는 useCallback으로 감싸져있다. useCallback 두번째 인자에 targetProductIndex(추가할 상품의 index)를 구하기 위해 사용할 productsList 값을 넣어줘야 함수가 실행된다.
 
 (20.03.08) 테스트 환경 추가
-- Next에 react-test-library 추가
-- /products 페이지 액션, 리듀서 유닛 테스트 (요청, 성공 케이스)
+- (add) Next에 react-test-library 추가
+- (add) /products 페이지 액션, 리듀서 유닛 테스트 (요청, 성공 케이스)
 
 (20.03.09) 폴더 구조 정리, SSR 연결
 - (edit) componets들 각 페이지를 기준으로 폴더 구성
 - (edit) 상품리스트 영역 isLoading 값까지 ProductsList 컴포넌트로 이동
 - (edit) 상품리스트 페이지 Server-Side-Rendering으로 화면 렌더링 전에 데이터 미리 불러오기
+- (edit) memo를 이용한 리렌더링 최적화 작업

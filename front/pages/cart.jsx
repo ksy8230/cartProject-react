@@ -12,7 +12,6 @@ const Cart = () => {
     
     // 체크박스 state
     const [currentOptionIndex, setCurrentOptionIndex] = useState(''); // 클릭한 옵션의 상품 index
-    const [cartAmountCount, setCartAmountCount] = useState(1);
     // 옵션 팝업에 들어갈 정보 state
     const [currentProduct, setCurrentProduct] = useState(''); // 선택된 상품 객체
     const [amountCount, setAmountCount] = useState(1);
@@ -56,8 +55,8 @@ const Cart = () => {
     };
     // 옵션 버튼 클릭 이벤트
     const onClickSetOptions = useCallback((index) => {
+        console.log(index)
         setPopupActive(true);
-        setCurrentOptionIndex(index);
         const currentProduct = cartListState[index]; // 옵션 선택 상품
         setCurrentProduct(currentProduct);
         setAmountCount(currentProduct.amount); // 현재 선택한 옵션 상품의 amount 유지
@@ -72,7 +71,6 @@ const Cart = () => {
         setTimeout(() => {
             setPopupFade(true);
         }, 500);
-        console.log('옵션 선택 상품 amount', currentProduct.amount)
     }, [cartListState, currentProduct, amountCount, popupActive]);
 
     // 옵션 갯수 추가 핸들러
@@ -86,7 +84,8 @@ const Cart = () => {
                 }
                 return data;
             })
-        )
+        );
+        
     };
     // 옵션 갯수 빼기 핸들러
     const handleMinusAmountCount = (index) => {
@@ -119,19 +118,6 @@ const Cart = () => {
         setPopupFade(false); // 팝업 페이드인 비활성
     };
 
-    // 팝업 닫기 이벤트
-    const onClickPopupClose = useCallback((id) => {
-        const targetProductIndex = cartListState.findIndex( v => v.id === id);
-        setCurrentOptionIndex(targetProductIndex);
-        const currentProduct = cartListState[targetProductIndex]; // 옵션 선택 상품
-        setCurrentProduct(currentProduct);
-        console.log('닫기',id)
-        console.log('닫기',targetProductIndex)
-        setAmountCount(currentProduct.amount); // 현재 선택한 옵션 상품의 amount 유지
-        setPopupActive(false); // 팝업 비활성
-        setPopupFade(false); // 팝업 페이드인 비활성
-    }, [cartListState, currentProduct, amountCount, popupActive]);
-
     return (
         <div className='pages-wrap wid1280'>
             <div className='pages-wrap_title'>
@@ -146,7 +132,6 @@ const Cart = () => {
                     setCartListState={setCartListState}
                     handleCheckProduct={handleCheckProduct} // 선택된 상품의 체크박스 활성
                     onClickSetOptions={onClickSetOptions} // 옵션 적용 팝업 열기
-                    //currentOptionIndex={currentOptionIndex}
                     amountCount={amountCount} // 적용된 수량
                 />
                 {/* 카트에 담긴 상품들 가격 정보 */}
@@ -161,7 +146,6 @@ const Cart = () => {
                 handleAddAmountCount={handleAddAmountCount} // 수량 올리기
                 handleMinusAmountCount={handleMinusAmountCount} // 수량 내리기
                 onClickSubmit={onClickSubmit} // 적용하기
-                onClickPopupClose={onClickPopupClose} // 팝업 닫기
                 popupActive={popupActive} // 팝업 활성 유무 state
                 popupFade={popupFade} // 팝업 페이드인으로 보이기
             />

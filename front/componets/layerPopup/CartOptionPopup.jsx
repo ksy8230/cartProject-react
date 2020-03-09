@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { memo } from "react";
 
-const CartOptionPopup = ({ 
-    currentProduct, handleAddAmountCount, handleMinusAmountCount, amountCount, onClickSubmit, onClickPopupClose, popupActive, popupFade
+const CartOptionPopup = memo(({ 
+    currentProduct, handleAddAmountCount, handleMinusAmountCount, amountCount, onClickSubmit, popupActive, popupFade
 }) => {
 
     return (
@@ -10,7 +9,6 @@ const CartOptionPopup = ({
         <div className={popupFade ? 'popup-wrapper cart-option fade-in' : 'popup-wrapper cart-option '}>
             <div className='overlay'></div>
             <div className='popup-wrapper_inner-wrapper'>
-                <div className='popup-close-btn' onClick={() => onClickPopupClose(currentProduct.id)}><FontAwesomeIcon icon={faTimes} /></div>
                 <div className='content'>
                     <div className='cover'><img src={currentProduct.coverImage} alt=""/></div>
                     <div className='info'>
@@ -35,6 +33,6 @@ const CartOptionPopup = ({
         </div>
         : null
     );
-};
+});
 
 export default CartOptionPopup;

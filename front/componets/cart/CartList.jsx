@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { isEmpty } from "../FunctionalComponent";
 
-const CartList = ({ 
-    cartListState, handleCheckProduct, onClickSetOptions, 
+const CartList = memo(({ 
+    cartListState, handleCheckProduct, onClickSetOptions
 }) => {
     
     return (
@@ -50,6 +51,6 @@ const CartList = ({
             }
         </div>
     );
-};
+});
 
 export default CartList;

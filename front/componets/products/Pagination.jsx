@@ -1,4 +1,5 @@
-const Pagination = ({ 
+import { memo } from "react";
+const Pagination = memo(({ 
     postsPerPage, totalPosts, paginate 
 }) => {
     const pageNumbers = [];
@@ -23,6 +24,6 @@ const Pagination = ({
             </ul>
         </nav>
     );
-};
+});
 
 export default Pagination;

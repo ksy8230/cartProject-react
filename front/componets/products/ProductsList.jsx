@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-const ProductsList = ({ 
+const ProductsList = memo(({ 
     isLoading, lists, addMiniCart, clickedPost 
 }) => {
 
@@ -33,6 +34,6 @@ const ProductsList = ({
             }
         </div>
     );
-};
+});
 
 export default ProductsList;
