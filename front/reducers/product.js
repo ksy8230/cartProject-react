@@ -31,6 +31,7 @@ export const LOAD_COUPONS_FAILURE = 'LOAD_COUPONS_FAILURE';
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        // 상품리스트 불러오기 리듀서
         case LOAD_PRODUCTS_REQUEST : {
             return {
                 ...state,
@@ -50,7 +51,8 @@ const reducer = (state = initialState, action) => {
                 loadProductsListErrorReason: '',
             }
         }
-        // 
+
+        // 상품을 미니카트에 추가하기 리듀서
         case ADD_PRODUCT_MINICART_REQUEST : {
             return {
                 ...state,
@@ -71,7 +73,8 @@ const reducer = (state = initialState, action) => {
                 addingProductErrorReason: '',
             }
         }
-        //
+
+        // 상품을 미니카트에서 삭제하기 리듀서
         case REMOVE_PRODUCT_MINICART_REQUEST : {
             return {
                 ...state,
@@ -89,7 +92,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
             }
         }
-        //
+
+        // 미니카트 상품들 불러오기 리듀서
         case LOAD_MINICART_PRODUCT_REQUEST : {
             return {
                 ...state,
@@ -106,7 +110,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
             }
         }
-        //
+
+        // 쿠폰 리스트 불러오기 리듀서
         case LOAD_COUPONS_REQUEST : {
             return {
                 ...state,
@@ -123,6 +128,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
             }
         }
+
         default : {
             return {
                 ...state,

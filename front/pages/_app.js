@@ -3,6 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper'; // App의 하이오더컴포넌트로 연결해 next가 store를 넣을 영역을 만든다
+import withReduxSaga from 'next-redux-saga';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
@@ -53,4 +54,4 @@ export default withRedux((initialState) => { // 리듀서의 초기 state들에 
     const store = createStore(reducer, initialState, enhancer); // state+reducer = store
     store.sagaTask = sagaMiddleware.run(rootSaga);
     return store;
-})(App);
+})(withReduxSaga(App));

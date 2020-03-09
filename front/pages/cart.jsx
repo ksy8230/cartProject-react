@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-import CartList from "../componets/CartList";
-import CartOptionPopup from "../componets/layerPopup/CartOptionPopup";
 import { useState, useCallback, useEffect } from "react";
 import { LOAD_COUPONS_REQUEST } from "../reducers/product";
-import CartCheckOut from "../componets/CartCheckOut";
+import CartOptionPopup from "../componets/layerPopup/CartOptionPopup";
+import CartList from "../componets/cart/CartList";
+import CartCheckOut from "../componets/cart/CartCheckOut";
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -36,11 +36,12 @@ const Cart = () => {
             }
         });
         setCartListState(insertSelectCartList);
+        // 할인 쿠폰 state 불러오기
+        dispatch({
+            type : LOAD_COUPONS_REQUEST
+        });
     }, []);
-    // 할인 쿠폰 state 불러오기
-    dispatch({
-        type : LOAD_COUPONS_REQUEST
-    });
+
     // 선택한 박스만 체크 핸들러
     const handleCheckProduct = (event, id) => {
         let checked = event.target.checked;

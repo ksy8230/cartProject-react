@@ -1,5 +1,4 @@
-import { isEmpty } from "./FunctionalComponent";
-
+import { isEmpty } from "../FunctionalComponent";
 
 const CartList = ({ 
     cartListState, handleCheckProduct, onClickSetOptions, 

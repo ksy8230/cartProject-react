@@ -26,6 +26,7 @@
     "mdbreact": "^4.25.3",
     "next": "^9.2.2",
     "next-compose-plugins": "^2.2.0",
+    "next-redux-saga": "^4.1.2",
     "next-redux-wrapper": "^5.0.0",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",

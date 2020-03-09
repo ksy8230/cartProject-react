@@ -35,8 +35,8 @@ app.prepare().then(() => {
         res.send(couponsDB);
     });
 
-    server.get('/products', (req, res) => {
-        return app.render(req, res, '/products');
+    server.get('/product/:id', (req, res) => {
+        return app.render(req, res, '/product', { id : req.params.id });
     });
 
     server.get('*', (req, res) => {

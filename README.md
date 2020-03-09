@@ -25,7 +25,7 @@
 - [v] 담긴 상품 선택 후 - 삭제 기능
 - [v] 담긴 상품은 빼기 버튼 활성화 => 버튼은 장바구니 이미지로 통일하고 미니카트에서 삭제로 대안
 - [v] 상품 담은 후 장바구니 가기 누르면 장바구니 페이지
-- LOAD_MINICART_PRODUCT_REQUEST 사용되지 않으면 삭제하기!
+- [v] LOAD_MINICART_PRODUCT_REQUEST 사용되지 않으면 삭제하기!
 - [v] 숫자 1000단위 컴마
 
 ##### 장바구니 페이지 기능 구현 및 할일
@@ -48,10 +48,10 @@
 
 + a 넣고 싶은 것 & 기타
 - [v] 페이지네이션에 외부 라이브러리 사용해 디자인 적용해 보기
+- [v] 컴포넌트들을 page기준으로 폴더 안에 넣기 ex)cart 페이지 관련 컴포넌트는 cart 폴더에 넣는다
+- [v] 상품목록 페이지 server-side-rendering
 - [ ] 장바구니 하단 추천 상품들 슬라이드 기능
-- [ ] 컴포넌트들을 page기준으로 폴더 안에 넣기 ex)cart 페이지 관련 컴포넌트는 cart 폴더에 넣는다
 - [ ] 타입스크립트 적용 (공부가 필요함)
-- [ ] ssr (검색엔진에 노출을 위함, id 쿼리를 받아 페이지를 보여주는 동적 화면에서 필요)
 
 * 새로 배운 개념
 toLocaleString() : 천단위 컴마
@@ -90,6 +90,11 @@ toLocaleString() : 천단위 컴마
 - 장바구니 아이콘 클릭시 cartList 배열 못 읽는 현상
     - => (해결) 장바구니 아이콘 클릭시 addMiniCart라는 함수가 실행되고 이 함수는 useCallback으로 감싸져있다. useCallback 두번째 인자에 targetProductIndex(추가할 상품의 index)를 구하기 위해 사용할 productsList 값을 넣어줘야 함수가 실행된다.
 
-(20.03.08) 
+(20.03.08) 테스트 환경 추가
 - Next에 react-test-library 추가
 - /products 페이지 액션, 리듀서 유닛 테스트 (요청, 성공 케이스)
+
+(20.03.09) 폴더 구조 정리, SSR 연결
+- (edit) componets들 각 페이지를 기준으로 폴더 구성
+- (edit) 상품리스트 영역 isLoading 값까지 ProductsList 컴포넌트로 이동
+- (edit) 상품리스트 페이지 Server-Side-Rendering으로 화면 렌더링 전에 데이터 미리 불러오기
