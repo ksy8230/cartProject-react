@@ -17,7 +17,7 @@ const MiniCart = ({
                             {
                                 cartList && cartList.map( v => {
                                     return (
-                                        <div className='minicart-box'>
+                                        <div className='minicart-box' key={v.id}>
                                             <span className='subtract' onClick={() => removeMiniCart(v.id)}><FontAwesomeIcon icon={faTimes} /></span>
                                             <div className='cover'><img src={v.coverImage} alt=""/></div>
                                             <div className='info'>
@@ -31,8 +31,10 @@ const MiniCart = ({
                         </> 
                         : null
                     }
-                    <div><button type="button" className="btn btn-primary">바로 구매</button></div>
-                    <div><button ><Link href='/cart'><a>장바구니</a></Link></button></div>
+                    <div className='btns'>
+                        <button type="button" className="btn btn-primary">바로 구매</button>
+                        <button type="button" className="btn btn-light"><Link href='/cart'><a>장바구니</a></Link></button>
+                    </div>
                 </div>
             }
         </div>

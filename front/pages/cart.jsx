@@ -8,20 +8,15 @@ import CartCheckOut from "../componets/cart/CartCheckOut";
 const Cart = () => {
     const dispatch = useDispatch();
     let cartList = useSelector(state => state.product.cartList);
-    const [cartListState, setCartListState] = useState([]); // 카트 상태값
-    
-    // 체크박스 state
-    const [currentOptionIndex, setCurrentOptionIndex] = useState(''); // 클릭한 옵션의 상품 index
-    // 옵션 팝업에 들어갈 정보 state
+    const [cartListState, setCartListState] = useState([]); // 카트 내부 상태값
     const [currentProduct, setCurrentProduct] = useState(''); // 선택된 상품 객체
-    const [amountCount, setAmountCount] = useState(1);
-    // 팝업 열기 닫기 
-    const [popupActive, setPopupActive] = useState(false);
+    const [amountCount, setAmountCount] = useState(1); // 수량 state
+    const [popupActive, setPopupActive] = useState(false); // 팝업 열기 닫기 
     const [popupFade, setPopupFade] = useState(false);
+
     // 체크박스 유무에 사용될 select 옵션을 cartListState에 추가
     useEffect(() => {
         const insertSelectCartList = cartList.map(v => { 
-            console.log('다른 state가 추가된 카트 리스트', v)
             return {
                 select : false,
                 amount : 1,
@@ -53,6 +48,7 @@ const Cart = () => {
             })
         )
     };
+
     // 옵션 버튼 클릭 이벤트
     const onClickSetOptions = useCallback((index) => {
         console.log(index)
@@ -87,6 +83,7 @@ const Cart = () => {
         );
         
     };
+
     // 옵션 갯수 빼기 핸들러
     const handleMinusAmountCount = (index) => {
         if(amountCount < 2) {
@@ -104,6 +101,7 @@ const Cart = () => {
             )
         }
     };
+    
     // 옵션 설정 적용하기 이벤트
     const onClickSubmit = (index) => {
         setCartListState(

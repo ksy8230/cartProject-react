@@ -1,0 +1,20 @@
+/*
+
+header
+
+*/
+@import './mixin.scss';
+
+header {
+    max-width: 1176px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    .header-wrap {
+        display: flex;
+        padding: 14px 0;
+        >div {
+            margin-right: 10px;
+        }
+    }
+}

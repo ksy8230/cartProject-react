@@ -3,6 +3,7 @@
 product-box : 상품 리스트 박스
 products-list : 상품 리스트
 minicart-list : 미니카트 리스트
+pagination : 페이지네이션
 
 */
 @import './mixin.scss';
@@ -142,6 +143,7 @@ minicart-list : 미니카트 리스트
         right:-50%;
         height: 100%;
         display: inline-block;
+        padding:10px;
         text-align: left;
         width: 400px;
         background: #fff;
@@ -150,7 +152,7 @@ minicart-list : 미니카트 리스트
 
         .minicart-box {
             position: relative;
-            margin: 15px;
+            margin: 0 0 15px;
             overflow: hidden;
             .cover {
                 position: relative;
@@ -178,6 +180,25 @@ minicart-list : 미니카트 리스트
                         margin-bottom: 5px;
                     }
                 }
+            }
+        }
+    }
+    .btns {
+        display: flex;
+    }
+    // 부트스트랩 관련 css 초기화
+    .btn {
+        margin : 0 0 10px;
+    }
+}
+
+.pagination {
+    .page-item  {
+        margin-right: 5px;
+        .page-link {
+            box-sizing: border-box;
+            &.active {
+                background: $lightgray;
             }
         }
     }

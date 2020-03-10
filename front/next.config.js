@@ -1,8 +1,9 @@
 const path = require('path');
 const withSass = require('@zeit/next-sass');
 const withCss = require('@zeit/next-css');
+const withTypescript = require('@zeit/next-typescript');
 
-module.exports = withSass(withCss({
+module.exports = withTypescript(withSass(withCss({
     webpack: function (config) {
         config.module.rules.push({
           test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
@@ -19,4 +20,4 @@ module.exports = withSass(withCss({
       cssLoaderOptions: { // this solves the issue
         url: false
       }
-}));
+})));

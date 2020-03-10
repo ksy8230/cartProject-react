@@ -3,7 +3,6 @@ const next = require('next');
 const cors = require('cors');
 //const server = express();
 const bodyParser = require('body-parser');
-
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -22,7 +21,6 @@ app.prepare().then(() => {
     
     server.get('/productlist', (req, res) => { // 상품리스트 로드 api
         //res.header("Access-Control-Allow-Origin", "*");
-        //console.log(productItemsDB)
         productItemsDB.sort((a,b) => {
             return a.score > b.score ? -1 : 1;
         })
@@ -31,7 +29,6 @@ app.prepare().then(() => {
     
     server.get('/coupon', (req, res) => { // 쿠폰 api
         //res.header("Access-Control-Allow-Origin", "*");
-        //console.log(couponsDB)
         res.send(couponsDB);
     });
 

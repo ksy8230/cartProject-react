@@ -1,10 +1,20 @@
+/*export interface productState {
+    productsList: [],
+    cartList: [],
+    couponsList: [],
+    isLoadingList: boolean,
+    isAddingProduct: boolean,
+    loadProductsListErrorReason: string,
+    addingProductErrorReason: string,
+}*/
+
 export const initialState = {
     productsList : [], // 상품 리스트
     cartList : [], // 카트에 담긴 리스트
     couponsList : [], // 쿠폰 리스트
-    loadProductsListErrorReason : '', // 상품리스트 로드 에러
     isLoadingList : true, // 상품리스트들 불러오는 중
     isAddingProduct : true, // 미니카트에 상품 담는 중
+    loadProductsListErrorReason : '', // 상품리스트 로드 에러
     addingProductErrorReason : '', // 미니카트에 상품 담기 에러
 };
 

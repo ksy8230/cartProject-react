@@ -1,20 +1,19 @@
 
 
-#### 작업 전 폴더 구성 
+#### 폴더 구성 
 - assets : css
-- components : 컴포넌트 파일 / 순수함수파일(폴더로 묶기)
-- pages : 페이지 기준 (예상 총 2장)
+- components : 컴포넌트 파일 / 순수함수파일 / 페이지를 기준으로한 컴포넌트 폴더
+- pages : 상품목록 페이지, 장바구니 페이지, 상품 상세 페이지(개별 상품 id 값만 보여주기)
 - reducers : 리듀서들 작성
 - sagas : 사가들 작성
-
 - source : 소스파일 
 - server.js : 소스파일 넘겨줄 api 서버
+- __tests__ : 리액트 테스팅 라이브러리를 이용한 테스트 파일
 
-#### 작업 전 state / action 예상
-- 1. 메인상품 리스트 
-- 2. 장바구니 리스트
-- 3. 장바구니 화면의 상품 리스트 (2번 데이터 가져오기)
-
+#### 작업 전 state / action 기준
+- 메인상품 리스트 
+- 장바구니 리스트
+- 장바구니 화면의 상품 리스트 (2번 데이터 가져오기)
 
 ##### 상품 목록 페이지 기능 구현 및 할일
 - [v] 상품 목록 로드
@@ -41,26 +40,23 @@
 - [v] /cart 접근시 데이터 없는 경우 처리
 
 - [v] 테스트 환경 만들기
-    - 참고한 링크들
+    - 참고한 링크들 자료 링크
     - https://github.com/zeit/next.js/tree/canary/examples/with-jest
     - https://medium.com/@netxm/testing-redux-reducers-with-jest-6653abbfe3e1
     - https://www.youtube.com/watch?v=2d-SX8YRyis
 
-##### +a 넣고 싶은 것 & 기타
+##### + a 넣고 싶은 것 & 기타
 - [v] 페이지네이션에 외부 라이브러리 사용해 디자인 적용해 보기
 - [v] 컴포넌트들을 page기준으로 폴더 안에 넣기 ex)cart 페이지 관련 컴포넌트는 cart 폴더에 넣는다
 - [v] 상품목록 페이지 server-side-rendering
+- [v] 타입스크립트 적용 -ing
 - [ ] 장바구니 하단 추천 상품들 슬라이드 기능
-- [ ] 타입스크립트 적용 (공부가 필요함)
-
-* 새로 배운 개념
-toLocaleString() : 천단위 컴마
 
 ##### 페이지 디자인
-- [ ] 상품 목록 페이지 전체 완료
+- [v] 상품 목록 페이지 전체 완료
 - [v] 장바구니 페이지 전체 완료
 
-##### 페이지네이션 준비하기
+##### 페이지네이션 준비하기 공부 자료 링크
 - https://www.youtube.com/watch?v=IYCa1F-OWmk
 - https://medium.com/@loshy244110/react-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%84%A4%EC%9D%B4%EC%85%98-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-9c645c5046cd
 
@@ -98,3 +94,7 @@ toLocaleString() : 천단위 컴마
 - (edit) 상품리스트 영역 isLoading 값까지 ProductsList 컴포넌트로 이동
 - (edit) 상품리스트 페이지 Server-Side-Rendering으로 화면 렌더링 전에 데이터 미리 불러오기
 - (edit) memo를 이용한 리렌더링 최적화 작업
+
+(20.03.10) 
+- (edit) 세부 디자인 수정 및 README.md 수정
+- (edit) typescript 일부 페이지 적용

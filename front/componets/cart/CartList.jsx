@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { isEmpty } from "../FunctionalComponent";
+import Link from "next/link";
 
 const CartList = memo(({ 
     cartListState, handleCheckProduct, onClickSetOptions
@@ -8,13 +9,13 @@ const CartList = memo(({
     return (
         <div className='cart-list'>
             {
-                isEmpty(cartListState) ? <div><p>장바구니에 담긴 상품들이 없습니다.</p></div>
+                isEmpty(cartListState) ? <div><p>장바구니에 담긴 상품들이 없습니다. <Link href='/products'><a>담으러 가기</a></Link></p></div>
                 :
                 <ul>
                     {
                         cartListState.map((v, i)=> {
                             return (
-                                <li key={i}>
+                                <li key={v.id}>
                                     <div className='cover'>
                                         <div className='custom-control custom-checkbox'>
                                             <input
@@ -26,7 +27,7 @@ const CartList = memo(({
                                             />
                                             <label 
                                                 className='custom-control-label' 
-                                                for={v.id}
+                                                htmlFor={v.id}
                                             >
                                             <img src={v.coverImage} alt=""/>
                                             </label>

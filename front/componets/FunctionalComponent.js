@@ -27,9 +27,9 @@ export const filteredExceptCouponTotalAmount = (array) => {
 
 // 장바구니 > 쿠폰리스트 만들기
 export const makeCouponsList = (array) => { 
-    return array.map(v => {
+    return array.map((v, i) => {
         return (
-            <option 
+            <option key={i}
                 value={
                     v.type === "rate" ?  Number(v.discountRate/100) : v.type === "amount" ? Number(v.discountAmount) : null
                 }
@@ -46,6 +46,14 @@ export const isEmpty = (array) => {
         return true;
     } else {
         return false;
-    }
+    };
+}
+
+// 페이지네이션 넘버링 만들기
+export const paginationArray = (totalValue, setPerValue, array) => {
+    for (let i = 1; i <= Math.ceil(totalValue / setPerValue); i++) {
+        array.push(i);
+    };
+    return array;
 }
 

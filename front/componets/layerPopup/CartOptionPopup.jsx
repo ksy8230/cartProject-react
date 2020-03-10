@@ -15,7 +15,6 @@ const CartOptionPopup = memo(({
                         <strong>{currentProduct.title}</strong>
                         <div className='info_amount'>
                             <p>수량</p>
-                            
                             <div>
                                 <button onClick={() => handleMinusAmountCount(currentProduct.id)}>-</button>
                                 <span>{amountCount < 1 ? 1 : amountCount}</span>

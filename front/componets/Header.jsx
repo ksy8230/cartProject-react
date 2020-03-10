@@ -4,9 +4,12 @@ const Header = memo(() => {
     
     return (
         <header>
-            <div><Link href='/'><a>홈</a></Link></div>
-            <div>search</div>
-            <div>navagation</div>
+            <div className='header-wrap'>
+                <div><Link href='/'><a>홈</a></Link></div>
+                <div>menu1</div>
+                <div>menu2</div>
+            </div>
+
         </header>
     )
 });
