@@ -1,4 +1,18 @@
+#### 파일 실행법
+/front
+- npm run dev : 클라이언트단 실행 (http://localhost:3000/)
+- node server : 서버단 실행 (http://localhost:3001)
 
+#### 스택
+> Reactjs, Nextjs, Express, jest/testing-library/react, Typescript(적용 중)
+
+- 리액트 상태관리 도구 : 리덕스, 리덕스 사가
+- express를 이용해 api 서버 생성
+- express를 이용한 동적 라우팅 (/product/상품아이디)
+- Nextjs의 라우팅 시스템 이용 (/pages 폴더)
+- Nextjs의 서버사이드렌더링 (/products 페이지 해당)
+- testing-library/react를 이용해 상품목록 리스트 불러오기 액션, 리듀서 단위 테스트
+- Typescript를 이용해 일부 파일 적용 (-ing)
 
 #### 폴더 구성 
 - assets : css
@@ -11,9 +25,9 @@
 - __tests__ : 리액트 테스팅 라이브러리를 이용한 테스트 파일
 
 #### 작업 전 state / action 기준
-- 메인상품 리스트 
-- 장바구니 리스트
-- 장바구니 화면의 상품 리스트 (2번 데이터 가져오기)
+- (1) 메인상품 리스트 
+- (2) 장바구니 리스트
+- (3) 장바구니 화면의 상품 리스트 (2번 데이터 가져오기)
 
 ##### 상품 목록 페이지 기능 구현 및 할일
 - [v] 상품 목록 로드
